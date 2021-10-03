@@ -8,26 +8,11 @@ import { Link } from "react-router-dom";
 class Sidebar extends React.Component {
     render() {
         return (
-            <></>
-        //     <ProSidebar>
-        //         <SidebarHeader>
-        //             {
-        //                 <p>Logo</p>
-        //             }
-        //         </SidebarHeader>
-        //         <SidebarContent>
-        //             <Menu>
-        //                 <MenuItem>Explore<Link to="/" /></MenuItem>
-        //                 <MenuItem>My List<Link to="/MyList" /></MenuItem>
-        //                 <MenuItem>My Notes<Link to="/MyNNotes" /></MenuItem>
-        //             </Menu>
-        //         </SidebarContent>
-        //         <SidebarFooter>
-        //             {/**
-        //    *  You can add a footer for the sidebar ex: copyright
-        //    */}
-        //         </SidebarFooter>
-        //     </ProSidebar>
+            <>
+            
+            
+            </>
+
         );
     }
 }

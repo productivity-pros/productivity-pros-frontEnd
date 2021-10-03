@@ -7,6 +7,8 @@ import Sidebar from './sidebar'
 import Explore from './Explore'
 import Login from './Login.js';
 import {withAuth0} from "@auth0/auth0-react";
+import Navbar from './components/Navbar';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,16 +21,18 @@ class App extends React.Component {
     return (
       <>
         <Router>
-          <Header />
+         <Navbar />
+          {/* <Header /> */}
           <Sidebar/>
           <Switch>
             <Route exact path="/">
               {isAuthenticated ? <Explore/> : <Login />}
             </Route>
+
             <Route exact path="/MyList"><MyList /></Route>
             <Route exact path="/MyNotes"><MyNotes /></Route>
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </Router>
       </>
     );

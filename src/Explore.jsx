@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Mylist from './MyList'
 class Explore extends React.Component {
     render() {
         return (
@@ -8,6 +8,7 @@ class Explore extends React.Component {
 
                 <h1>Explore</h1>
 
+              <Mylist></Mylist>  
             </div>
         )
     }

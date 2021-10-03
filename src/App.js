@@ -12,8 +12,26 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+const axios = require('axios');
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        user: this.props.auth0.user,
+        spiringData: []
+    }
+}
+
+   getSpiringData = async () => {
+        let url = `http://localhost:3001/getInspiringExpressions`
+        let temData = await axios.get(url);
+        let spiringData = temData.data;
+        console.log(spiringData)
+        this.setState({
+            spiringData: spiringData
+        })
+    }
   render() {
     const {isAuthenticated} = this.props.auth0;
     return (

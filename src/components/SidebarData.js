@@ -14,20 +14,20 @@ export const SidebarData = [
   },
   {
     title: 'Explore',
-    path: '/reports',
+    path: '/',
     icon: <MdIcons.MdOutlineExplore />,
     cName: 'nav-text'
   },
   {
     title: 'My List',
-    path: '/products',
+    path: '/MyList',
     icon: <FaIcons.FaListAlt />,
     cName: 'nav-text'
   },
 
   {
     title: 'My Note',
-    path: '/messages',
+    path: '/MyNotes',
     icon: <ImIcons.ImPencil2 />,
     cName: 'nav-text'
   },

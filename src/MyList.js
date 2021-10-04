@@ -24,7 +24,7 @@ class MyFavoriteBooks extends React.Component {
     const id = ev.dataTransfer.getData("id");
 
     let tasks = this.state.tasks.filter(task => {
-      if (task.name == id) {
+      if (task.name === id) {
         task.category = cat;
       }
       return task;
@@ -36,7 +36,7 @@ class MyFavoriteBooks extends React.Component {
   };
 
   handleKeyPress = ev => {
-    if ((ev.key == "Enter") && (ev.target.value != "")) {
+    if ((ev.key === "Enter") && (ev.target.value !=="")) {
       this.setState({
         tasks: [
           ...this.state.tasks,

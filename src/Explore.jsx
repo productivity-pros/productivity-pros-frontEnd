@@ -6,7 +6,7 @@ class Explore extends React.Component {
         return (
             <div>
                 <h1>Explore</h1>
-              <Mylist></Mylist>  
+              <Mylist/>
             </div>
         )
     }

@@ -1,12 +1,16 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './MyList.scss'; 
-class MyFavoriteBooks extends React.Component {
+import './MyList.scss';
+
+import axios from 'axios';
+import { withAuth0 } from '@auth0/auth0-react';
+
+class MyList extends React.Component {
 
   state = {
     tasks: [
       {
-        name: "Add More Tasks",
+        name: "Add Notes",
         category: "todo"
       }
     ]
@@ -20,32 +24,53 @@ class MyFavoriteBooks extends React.Component {
     ev.dataTransfer.setData("id", name);
   };
 
-  onDrop = (ev, cat) => {
+  onDrop = async (ev, cat) => {
     const id = ev.dataTransfer.getData("id");
-
-    let tasks = this.state.tasks.filter(task => {
+    let note = {};
+    this.state.tasks.forEach(task => {
       if (task.name == id) {
         task.category = cat;
+
+        let obj = {
+          name: task.name,
+          category: cat,
+          email: task.email,
+          _id: task._id
+        }
+        note = obj;
       }
-      return task;
     });
+    let noteData = await axios.put(`${process.env.REACT_APP_SERVER}/updatenote`, note);
     this.setState({
-      ...this.state,
-      tasks
+      tasks: noteData.data,
     });
   };
 
-  handleKeyPress = ev => {
+  handleKeyPress = async ev => {
     if ((ev.key == "Enter") && (ev.target.value != "")) {
+      const { user } = this.props.auth0;
+      let note = {
+        name: ev.target.value,
+        category: "todo",
+        email: user.email
+      }
+      let noteData = await axios.post(`${process.env.REACT_APP_SERVER}/addnote`, note);
+      console.log(noteData.data);
       this.setState({
-        tasks: [
-          ...this.state.tasks,
-          { name: ev.target.value, category: "todo" }
-        ]
+        tasks: noteData.data
       });
+      console.log(this.state.tasks);
       ev.target.value = " ";
     }
   };
+
+  componentDidMount = async () => {
+    const { user } = this.props.auth0;
+    let notesData = await axios.get(`http://localhost:3001/getnotes?email=${user.email}`);
+    this.setState({
+      tasks: notesData.data
+    })
+  }
 
   render() {
     var tasks = {
@@ -54,6 +79,8 @@ class MyFavoriteBooks extends React.Component {
       complete: [],
       trash: []
     };
+
+
 
     this.state.tasks.forEach(t => {
       tasks[t.category].push(
@@ -67,8 +94,8 @@ class MyFavoriteBooks extends React.Component {
         </div>
       );
     });
-    
-    
+
+
 
     return (
       <div>
@@ -120,9 +147,9 @@ class MyFavoriteBooks extends React.Component {
   }
 }
 
-  
 
 
-export default MyFavoriteBooks;
- 
+
+export default withAuth0(MyList);
+
 

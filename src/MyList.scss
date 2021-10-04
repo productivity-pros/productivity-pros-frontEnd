@@ -49,6 +49,7 @@
     cursor: grab;
     border-radius: 4px;
     transition: background .4s;
+    overflow-wrap: break-word;
     &:hover {
       background: rgba(15,89,89, 0.9);
     }

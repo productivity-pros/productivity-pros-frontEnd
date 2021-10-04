@@ -74,12 +74,21 @@ class MyFavoriteBooks extends React.Component {
       <div className='list'>
         <div id='background-image'></div>
         <div class="container">
+ 
           <div
             className="drop-area"
             onDragOver={e => this.onDragOver(e)}
             onDrop={e => this.onDrop(e, "todo")}
           >
             <h1>Todo</h1>
+            <div>
+          <input
+              onKeyPress={e => this.handleKeyPress(e)}
+              className="input"
+              type="text"
+              placeholder="Task Name"
+            />
+              </div> 
             {tasks.todo}
           </div>
           <div
@@ -100,14 +109,7 @@ class MyFavoriteBooks extends React.Component {
           </div>
         </div>
         <div>
-          <input
-            onKeyPress={e => this.handleKeyPress(e)}
-            className="input"
-            type="text"
-            placeholder="Task Name"
-          />
-
-          <div
+        <div
             class="trash-drop"
             onDrop={e => this.onDrop(e, "trash")}
             onDragOver={e => this.onDragOver(e)}
@@ -115,6 +117,7 @@ class MyFavoriteBooks extends React.Component {
             Drop here to remove
           </div>
         </div>
+ 
       </div>
     );
   }

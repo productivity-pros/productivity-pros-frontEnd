@@ -71,7 +71,7 @@ class MyFavoriteBooks extends React.Component {
     
 
     return (
-      <div>
+      <div className='list'>
         <div id='background-image'></div>
         <div class="container">
           <div
@@ -119,9 +119,6 @@ class MyFavoriteBooks extends React.Component {
     );
   }
 }
-
-  
-
 
 export default MyFavoriteBooks;
  

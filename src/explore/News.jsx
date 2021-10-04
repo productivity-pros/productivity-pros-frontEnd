@@ -25,7 +25,6 @@ class News extends React.Component {
                 Data: Data
             })
         }
-        console.log(this.state.Data)
     }
     closeM = () => {
         this.setState({

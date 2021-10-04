@@ -10,7 +10,7 @@ class Explore extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{marginLeft:'17%'}}>
                 <h1>Explore</h1>
                 <News/>
                 <Spiring/>

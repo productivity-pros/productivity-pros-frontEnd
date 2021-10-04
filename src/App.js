@@ -6,8 +6,6 @@ import Explore from './Explore'
 import Login from './Login.js';
 import {withAuth0} from "@auth0/auth0-react";
 import Navbar from './components/Navbar';
-import Sidebar from './Sidebar';
-import Header from './Header';
 
 import {
   BrowserRouter as Router,
@@ -39,9 +37,7 @@ class App extends React.Component {
     return (
       <>
         <Router>
-         {/* <Navbar /> */}
-         <Header /> 
-         <Sidebar/>
+         <Navbar />
           <Switch>
             <Route exact path="/">
               {isAuthenticated ? <Explore/> : <Login />}

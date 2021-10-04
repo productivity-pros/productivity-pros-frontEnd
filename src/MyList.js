@@ -13,7 +13,10 @@ class MyList extends React.Component {
         name: "Add Notes",
         category: "todo"
       }
-    ]
+    ],
+    editID: -1,
+    editedID: 0,
+    editedCat:''
   };
 
   onDragOver = ev => {
@@ -43,7 +46,38 @@ class MyList extends React.Component {
     let noteData = await axios.put(`${process.env.REACT_APP_SERVER}/updatenote`, note);
     this.setState({
       tasks: noteData.data,
+      editable: true
     });
+  };
+
+  startEdit = idx => {
+    const input = document.getElementById(`input${idx}`);
+    this.state.tasks.forEach((task, taskIdx) => {
+      if (taskIdx == idx) {
+        this.setState({
+          editID: idx,
+          editedID: task._id,
+          editedCat: task.category
+        })
+      }
+    })
+  };
+  
+  handleKeyPressUpdate = async ev => {
+    if ((ev.key == "Enter") && (ev.target.value != "")) {
+      const { user } = this.props.auth0;
+      let note = {
+        name: ev.target.value,
+        category: this.state.editedCat,
+        email: user.email,
+        _id: this.state.editedID
+      }
+      let noteData = await axios.put(`${process.env.REACT_APP_SERVER}/updatenote`, note);
+      this.setState({
+        tasks: noteData.data,
+        editID: -1,
+      });
+    }
   };
 
   handleKeyPress = async ev => {
@@ -82,7 +116,7 @@ class MyList extends React.Component {
 
 
 
-    this.state.tasks.forEach(t => {
+    this.state.tasks.forEach((t, idx) => {
       tasks[t.category].push(
         <div
           className="item-container"
@@ -90,7 +124,16 @@ class MyList extends React.Component {
           draggable
           onDragStart={e => this.onDragStart(e, t.name)}
         >
-          {t.name}
+          {this.state.editID !== idx && t.name}
+          {this.state.editID === idx && <input
+            className="input-in"
+            type="text"
+            defaultValue={t.name}
+            id={`input${idx}`}
+            onKeyPress={e => this.handleKeyPressUpdate(e)}
+          />
+          }
+          <button onClick={e => this.startEdit(idx)}>edit</button>
         </div>
       );
     });

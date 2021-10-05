@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './MyList.scss';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
+import { FaEdit } from "react-icons/fa";
+import { FaRegWindowClose } from "react-icons/fa";
 
 class MyList extends React.Component {
 
@@ -99,6 +101,12 @@ class MyList extends React.Component {
     }
   };
 
+  handleClose = () => {
+    this.setState({
+      editID: -1,
+    });
+  };
+
   componentDidMount = async () => {
     const { user } = this.props.auth0;
     let listsData = await axios.get(`${process.env.REACT_APP_SERVER}/getlists?email=${user.email}`);
@@ -134,7 +142,8 @@ class MyList extends React.Component {
             onKeyPress={e => this.handleKeyPressUpdate(e)}
           />
           }
-          <button onClick={e => this.startEdit(idx)}>edit</button>
+          {this.state.editID !== idx && <FaEdit className='edit-icon-list' size='1.5em' onClick={e => this.startEdit(idx)}/>}
+          {this.state.editID === idx && <FaRegWindowClose className='edit-icon-list' size='1.5em' onClick={this.handleClose}/>}
         </div>
       );
     });

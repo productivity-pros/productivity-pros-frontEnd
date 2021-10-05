@@ -7,6 +7,7 @@ import Explore from './Explore'
 import Login from './Login.js';
 import {withAuth0} from "@auth0/auth0-react";
 import Navbar from './components/Navbar';
+import LandingPage from './components/LandingPage'
 
 import {
   BrowserRouter as Router,
@@ -38,15 +39,16 @@ class App extends React.Component {
     return (
       <>
         <Router>
-         <Navbar />
-          {/* <Switch> */}
-             {/* <Route exact path="/">
-              {isAuthenticated ? <Explore/> : <Login />}
+        { isAuthenticated && <Navbar />}
+          <Switch>
+             <Route exact path="/">
+              {isAuthenticated ? <Explore/> : <LandingPage />}
             </Route>
-            <Route exact path="/MyList">{isAuthenticated ? <MyList/> : <Login />}</Route>
-            <Route exact path="/MyNotes">{isAuthenticated ? <MyNotes/> : <Login />}</Route>
+            {/* <Route exact path="/MyList">{isAuthenticated ? <Navbar/> : <LandingPage />}</Route> */}
+            <Route exact path="/MyList">{isAuthenticated ? <MyList/> : <LandingPage />}</Route>
+            <Route exact path="/MyNotes">{isAuthenticated ? <MyNotes/> : <LandingPage />}</Route>
           </Switch>
-          <Footer />   */}
+          {/* <Footer />   */}
         </Router>
       </>
     );

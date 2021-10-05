@@ -13,7 +13,7 @@ class Header extends React.Component {
   render() {
     const isAuthenticated = this.props.auth0;
     return(
-      <div><LandingPage/></div>
+      // <div><LandingPage/></div>
       // <Navbar bg="red" >
          /* <Container>
     <Navbar.Brand href="#home">

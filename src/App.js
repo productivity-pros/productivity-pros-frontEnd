@@ -44,7 +44,7 @@ class App extends React.Component {
               {isAuthenticated ? <Explore/> : <Login />}
             </Route>
             <Route exact path="/MyList">{isAuthenticated ? <MyList/> : <Login />}</Route>
-            {/* <Route exact path="/MyNotes"><MyNotes /></Route> */}
+            <Route exact path="/MyNotes">{isAuthenticated ? <MyNotes/> : <Login />}</Route>
           </Switch>
           <Footer />  
         </Router>

@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-body {
+/* body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -24,7 +24,7 @@ code {
 	color: white;
 }
 
-.container {
+.containerNotes {
 	max-width: 1800px;
 	margin-right: auto;
 	margin-left: auto;

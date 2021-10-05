@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
-// import { nanoid } from 'nanoid'
 import Noteslist from "./components/Noteslist";
 import Search from './components/Search';
 import Header from './components/Header';
 import './MyNotes.css'
-
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -68,7 +66,7 @@ const MyNotes = () => {
 	// console.log(notes);
 	return (
 		<div className={`${darkMode && 'dark-mode'}`}>
-			<div className='container'>
+			<div className='containerNotes'>
 				<Header toggleMode={setDarkMode} />
 				<Search handleSearchNote={setSearchText} />
 				<Noteslist notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))} handleSave={addNote} handleDelete={deleteNote} handleUpdate={updateNote} />

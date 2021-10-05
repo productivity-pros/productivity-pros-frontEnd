@@ -39,6 +39,7 @@
     // }
   }
   .item-container {
+    position: relative;
     padding: 15px;
     background: rgba(15,89,89, 0.7);
     margin: 20px;
@@ -48,10 +49,15 @@
     cursor: grab;
     border-radius: 4px;
     transition: background .4s;
+    overflow-wrap: break-word;
     &:hover {
       background: rgba(15,89,89, 0.9);
     }
    }
+   .item-container button{
+    position: absolute;
+    right: 10px;
+  }
   
   h1 {
     color: hsl(176, 68%, 64%);    ;

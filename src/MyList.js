@@ -1,15 +1,22 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './MyList.scss'; 
-class MyFavoriteBooks extends React.Component {
+import './MyList.scss';
+
+import axios from 'axios';
+import { withAuth0 } from '@auth0/auth0-react';
+
+class MyList extends React.Component {
 
   state = {
     tasks: [
       {
-        name: "Add More Tasks",
+        name: "Add List",
         category: "todo"
       }
-    ]
+    ],
+    editID: -1,
+    editedID: 0,
+    editedCat:''
   };
 
   onDragOver = ev => {
@@ -20,34 +27,90 @@ class MyFavoriteBooks extends React.Component {
     ev.dataTransfer.setData("id", name);
   };
 
-  onDrop = (ev, cat) => {
+  onDrop = async (ev, cat) => {
     const id = ev.dataTransfer.getData("id");
-
-    let tasks = this.state.tasks.filter(task => {
-      if (task.name === id) {
+    let list = {};
+    this.state.tasks.forEach(task => {
+      if (task.name == id) {
         task.category = cat;
+
+        let obj = {
+          name: task.name,
+          category: cat,
+          email: task.email,
+          _id: task._id
+        }
+        list = obj;
       }
-      return task;
     });
+    let listData = await axios.put(`${process.env.REACT_APP_SERVER}/updatelist`, list);
     this.setState({
-      ...this.state,
-      tasks
+      tasks: listData.data,
+      editable: true
     });
   };
 
   handleKeyPress = ev => {
     if ((ev.key === "Enter") && (ev.target.value !=="")) {
+  startEdit = idx => {
+    const input = document.getElementById(`input${idx}`);
+    this.state.tasks.forEach((task, taskIdx) => {
+      if (taskIdx == idx) {
+        this.setState({
+          editID: idx,
+          editedID: task._id,
+          editedCat: task.category
+        })
+      }
+    })
+  }
+ };
+
+  
+  handleKeyPressUpdate = async ev => {
+    if ((ev.key == "Enter") && (ev.target.value != "")) {
+      const { user } = this.props.auth0;
+      let list = {
+        name: ev.target.value,
+        category: this.state.editedCat,
+        email: user.email,
+        _id: this.state.editedID
+      }
+      let listData = await axios.put(`${process.env.REACT_APP_SERVER}/updatelist`, list);
       this.setState({
-        tasks: [
-          ...this.state.tasks,
-          { name: ev.target.value, category: "todo" }
-        ]
+        tasks: listData.data,
+        editID: -1,
       });
+    }
+  };
+
+  handleKeyPress = async ev => {
+    if ((ev.key == "Enter") && (ev.target.value != "")) {
+      const { user } = this.props.auth0;
+      let list = {
+        name: ev.target.value,
+        category: "todo",
+        email: user.email
+      }
+      let listData = await axios.post(`${process.env.REACT_APP_SERVER}/addlist`, list);
+      // console.log(listData.data);
+      this.setState({
+        tasks: listData.data
+      });
+      console.log(this.state.tasks);
       ev.target.value = " ";
     }
   };
 
-  render() {
+  componentDidMount = async () => {
+    const { user } = this.props.auth0;
+    let listsData = await axios.get(`${process.env.REACT_APP_SERVER}/getlists?email=${user.email}`);
+    this.setState({
+      tasks: listsData.data
+    })
+  }
+  }
+  render(){
     var tasks = {
       todo: [],
       working: [],
@@ -55,7 +118,9 @@ class MyFavoriteBooks extends React.Component {
       trash: []
     };
 
-    this.state.tasks.forEach(t => {
+
+
+    this.state.tasks.forEach((t, idx) => {
       tasks[t.category].push(
         <div
           className="item-container"
@@ -63,12 +128,21 @@ class MyFavoriteBooks extends React.Component {
           draggable
           onDragStart={e => this.onDragStart(e, t.name)}
         >
-          {t.name}
+          {this.state.editID !== idx && t.name}
+          {this.state.editID === idx && <input
+            className="input-in"
+            type="text"
+            defaultValue={t.name}
+            id={`input${idx}`}
+            onKeyPress={e => this.handleKeyPressUpdate(e)}
+          />
+          }
+          <button onClick={e => this.startEdit(idx)}>edit</button>
         </div>
       );
     });
-    
-    
+  
+
 
     return (
       <div className='list'>
@@ -122,7 +196,4 @@ class MyFavoriteBooks extends React.Component {
     );
   }
 }
-
-export default MyFavoriteBooks;
- 
-
+export default withAuth0(MyList);

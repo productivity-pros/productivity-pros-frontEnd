@@ -5,7 +5,7 @@ class Header extends React.Component {
     render() {
 
         return (
-            <Navbar style={{backgroundColor:'#09090C'}}>
+            <Navbar style={ {overflow: 'hidden'},{backgroundColor:'#09090C'}} >
                 <Navbar.Brand style={{margin:'3rem', color:'white'}}>logo</Navbar.Brand>
             </Navbar>
         );

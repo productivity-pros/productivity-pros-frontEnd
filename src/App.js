@@ -22,13 +22,13 @@ class App extends React.Component {
           <Header />
           <Sidebar/>
           <Switch>
-            <Route exact path="/">
+            {/* <Route exact path="/">
               {isAuthenticated ? <Explore/> : <Login />}
-            </Route>
+            </Route> */}
             <Route exact path="/MyList"><MyList /></Route>
             <Route exact path="/MyNotes"><MyNotes /></Route>
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </Router>
       </>
     );

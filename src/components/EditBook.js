@@ -23,7 +23,6 @@ class EditBook extends React.Component {
     }
 
     editBook = async (e) => {
-        console.log('1');
         e.preventDefault();
         let bookInfo = {
             bookTitle: e.target.title.value,
@@ -32,9 +31,7 @@ class EditBook extends React.Component {
             userEmail: this.state.data.email,
             id: this.state.data._id
         }
-        console.log('2');
         let newData = await axios.put(`${process.env.REACT_APP_API_LINK}/updateBook`, bookInfo);
-        console.log('3');
         this.setState({
             cats: newData.data
         })

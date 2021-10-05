@@ -27,7 +27,6 @@ class App extends React.Component {
         let url = `http://localhost:3001/getInspiringExpressions`
         let temData = await axios.get(url);
         let spiringData = temData.data;
-        console.log(spiringData)
         this.setState({
             spiringData: spiringData
         })
@@ -45,7 +44,7 @@ class App extends React.Component {
             <Route exact path="/MyList"><MyList /></Route>
             <Route exact path="/MyNotes"><MyNotes /></Route>
           </Switch>
-          <Footer />  
+          <Footer />
         </Router>
       </>
     );

@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './MyList.scss';
-
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 
@@ -52,7 +51,7 @@ class MyList extends React.Component {
 
   handleKeyPress = ev => {
     if ((ev.key === "Enter") && (ev.target.value !=="")) {
-  startEdit = idx => {
+  let startEdit = idx => {
     const input = document.getElementById(`input${idx}`);
     this.state.tasks.forEach((task, taskIdx) => {
       if (taskIdx == idx) {
@@ -63,10 +62,10 @@ class MyList extends React.Component {
         })
       }
     })
-  }
+  };
  };
+}
 
-  
   handleKeyPressUpdate = async ev => {
     if ((ev.key == "Enter") && (ev.target.value != "")) {
       const { user } = this.props.auth0;
@@ -109,7 +108,7 @@ class MyList extends React.Component {
       tasks: listsData.data
     })
   }
-  }
+
   render(){
     var tasks = {
       todo: [],

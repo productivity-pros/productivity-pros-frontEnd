@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from './Footer';
  import MyList from './MyList';
  import MyNotes from './MyNotes'
-import Sidebar from './sidebar'
+// import Sidebar from './sidebar'
 import Explore from './Explore'
 import Login from './Login.js';
 import {withAuth0} from "@auth0/auth0-react";
@@ -41,7 +41,7 @@ class App extends React.Component {
          <Navbar />
           <Switch>
             <Route exact path="/">
-              {isAuthenticated ? <Explore/> : <Login />}
+              {isAuthenticated ? <MyList/> : <Login />}
             </Route>
             {/* <Route exact path="/MyList"><MyList /></Route> */}
             {/* <Route exact path="/MyNotes"><MyNotes /></Route> */}

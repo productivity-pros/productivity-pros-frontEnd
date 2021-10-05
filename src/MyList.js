@@ -49,9 +49,7 @@ class MyList extends React.Component {
     });
   };
 
-  handleKeyPress = ev => {
-    if ((ev.key === "Enter") && (ev.target.value !=="")) {
-  let startEdit = idx => {
+   startEdit = idx => {
     const input = document.getElementById(`input${idx}`);
     this.state.tasks.forEach((task, taskIdx) => {
       if (taskIdx == idx) {
@@ -63,8 +61,8 @@ class MyList extends React.Component {
       }
     })
   };
- };
-}
+ 
+
 
   handleKeyPressUpdate = async ev => {
     if ((ev.key == "Enter") && (ev.target.value != "")) {

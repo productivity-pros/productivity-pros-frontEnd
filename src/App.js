@@ -41,9 +41,9 @@ class App extends React.Component {
          <Navbar />
           <Switch>
             <Route exact path="/">
-              {isAuthenticated ? <MyList/> : <Login />}
+              {isAuthenticated ? <Explore/> : <Login />}
             </Route>
-            {/* <Route exact path="/MyList"><MyList /></Route> */}
+            <Route exact path="/MyList">{isAuthenticated ? <MyList/> : <Login />}</Route>
             {/* <Route exact path="/MyNotes"><MyNotes /></Route> */}
           </Switch>
           <Footer />  

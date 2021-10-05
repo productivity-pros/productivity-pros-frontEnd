@@ -10,10 +10,13 @@ class MyList extends React.Component {
   state = {
     tasks: [
       {
-        name: "Add Notes",
+        name: "Add List",
         category: "todo"
       }
-    ]
+    ],
+    editID: -1,
+    editedID: 0,
+    editedCat:''
   };
 
   onDragOver = ev => {
@@ -26,7 +29,7 @@ class MyList extends React.Component {
 
   onDrop = async (ev, cat) => {
     const id = ev.dataTransfer.getData("id");
-    let note = {};
+    let list = {};
     this.state.tasks.forEach(task => {
       if (task.name == id) {
         task.category = cat;
@@ -37,27 +40,58 @@ class MyList extends React.Component {
           email: task.email,
           _id: task._id
         }
-        note = obj;
+        list = obj;
       }
     });
-    let noteData = await axios.put(`${process.env.REACT_APP_SERVER}/updatenote`, note);
+    let listData = await axios.put(`${process.env.REACT_APP_SERVER}/updatelist`, list);
     this.setState({
-      tasks: noteData.data,
+      tasks: listData.data,
+      editable: true
     });
+  };
+
+  startEdit = idx => {
+    const input = document.getElementById(`input${idx}`);
+    this.state.tasks.forEach((task, taskIdx) => {
+      if (taskIdx == idx) {
+        this.setState({
+          editID: idx,
+          editedID: task._id,
+          editedCat: task.category
+        })
+      }
+    })
+  };
+  
+  handleKeyPressUpdate = async ev => {
+    if ((ev.key == "Enter") && (ev.target.value != "")) {
+      const { user } = this.props.auth0;
+      let list = {
+        name: ev.target.value,
+        category: this.state.editedCat,
+        email: user.email,
+        _id: this.state.editedID
+      }
+      let listData = await axios.put(`${process.env.REACT_APP_SERVER}/updatelist`, list);
+      this.setState({
+        tasks: listData.data,
+        editID: -1,
+      });
+    }
   };
 
   handleKeyPress = async ev => {
     if ((ev.key == "Enter") && (ev.target.value != "")) {
       const { user } = this.props.auth0;
-      let note = {
+      let list = {
         name: ev.target.value,
         category: "todo",
         email: user.email
       }
-      let noteData = await axios.post(`${process.env.REACT_APP_SERVER}/addnote`, note);
-      console.log(noteData.data);
+      let listData = await axios.post(`${process.env.REACT_APP_SERVER}/addlist`, list);
+      // console.log(listData.data);
       this.setState({
-        tasks: noteData.data
+        tasks: listData.data
       });
       console.log(this.state.tasks);
       ev.target.value = " ";
@@ -66,9 +100,9 @@ class MyList extends React.Component {
 
   componentDidMount = async () => {
     const { user } = this.props.auth0;
-    let notesData = await axios.get(`http://localhost:3001/getnotes?email=${user.email}`);
+    let listsData = await axios.get(`${process.env.REACT_APP_SERVER}/getlists?email=${user.email}`);
     this.setState({
-      tasks: notesData.data
+      tasks: listsData.data
     })
   }
 
@@ -82,7 +116,7 @@ class MyList extends React.Component {
 
 
 
-    this.state.tasks.forEach(t => {
+    this.state.tasks.forEach((t, idx) => {
       tasks[t.category].push(
         <div
           className="item-container"
@@ -90,7 +124,16 @@ class MyList extends React.Component {
           draggable
           onDragStart={e => this.onDragStart(e, t.name)}
         >
-          {t.name}
+          {this.state.editID !== idx && t.name}
+          {this.state.editID === idx && <input
+            className="input-in"
+            type="text"
+            defaultValue={t.name}
+            id={`input${idx}`}
+            onKeyPress={e => this.handleKeyPressUpdate(e)}
+          />
+          }
+          <button onClick={e => this.startEdit(idx)}>edit</button>
         </div>
       );
     });

@@ -40,6 +40,7 @@
     }
   }
   .item-container {
+    position: relative;
     padding: 15px;
     background: rgba(15,89,89, 0.7);
     margin: 20px;
@@ -54,6 +55,10 @@
       background: rgba(15,89,89, 0.9);
     }
    }
+   .item-container button{
+    position: absolute;
+    right: 10px;
+  }
   
   h1 {
     color: #FB6964;
@@ -64,7 +69,7 @@
     font-weight: 100;
   }
   
-  input {
+  .input {
     border: 2px solid #FB6964;
     display: block;
     margin: 50px auto;

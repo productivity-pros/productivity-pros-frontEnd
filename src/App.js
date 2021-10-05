@@ -39,14 +39,14 @@ class App extends React.Component {
       <>
         <Router>
          <Navbar />
-          <Switch>
-            <Route exact path="/">
+          {/* <Switch> */}
+             {/* <Route exact path="/">
               {isAuthenticated ? <Explore/> : <Login />}
             </Route>
             <Route exact path="/MyList">{isAuthenticated ? <MyList/> : <Login />}</Route>
             <Route exact path="/MyNotes">{isAuthenticated ? <MyNotes/> : <Login />}</Route>
           </Switch>
-          <Footer />  
+          <Footer />   */}
         </Router>
       </>
     );

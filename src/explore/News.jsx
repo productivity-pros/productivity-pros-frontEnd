@@ -1,7 +1,8 @@
 import React from 'react'
-import { CardGroup, Card, Modal } from 'react-bootstrap'
+import { Container, Row, Col, Image, Modal } from 'react-bootstrap'
 import { withAuth0 } from '@auth0/auth0-react';
 import NewsModal from './NewsModal';
+import './News.scss';
 const axios = require('axios');
 
 class News extends React.Component {
@@ -17,7 +18,7 @@ class News extends React.Component {
         let url = `http://localhost:3001/getLatestNews`
         let temData = await axios.get(url);
         let Data = []
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 9; i++) {
             Data.push(temData.data[i]);
         }
         if (this.state.Data.length === 0) {
@@ -42,24 +43,19 @@ class News extends React.Component {
         return (
             <div>
                 <h2>Latest News</h2>
-                <CardGroup style={{ display: 'flex' }}>
-                    {this.state.Data.map((ele, idx) => {
-                        return (
-                            <Card style={{ width: '18rem', margin: '5px', borderRadius: '25px', border: 'solid ', cursor: 'pointer'}} key={idx} onClick={()=>{this.showM(ele)}}>
-                                <Card.Body>
-                                <Card.Img variant="top" src={ele.image}/>
-                                    <Card.Text>
-                                        {ele.title}
-                                    </Card.Text>
-                                    <Card.Subtitle className="mb-2 text-muted">
-                                        By {ele.author}
-                                    </Card.Subtitle>
-                                </Card.Body>
-                            </Card>
-                        )
-                    })
-                    }
-                </CardGroup>
+                <Container>
+                    <Row>
+                        {this.state.Data.map((ele, i) => {
+                            return (
+                                <Col style={{}} onClick={()=>{this.showM(ele)}} xs={6} md={4} className='imgContainer' kye={i}>
+                                    <Image className='img' src={ele.image} rounded />
+                                    <p className='text'>{ele.title}</p>
+                                </Col>
+                            )
+                        })}
+                    </Row>
+                </Container>
+                <hr />
                 <Modal show={this.state.show} onHide={this.closeM}>
                 <NewsModal ele={this.state.ele}/>
                 </Modal>

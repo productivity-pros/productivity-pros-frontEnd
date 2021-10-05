@@ -54,9 +54,16 @@
       background: rgba(15,89,89, 0.9);
     }
    }
-   .item-container button{
+   .item-container .edit-icon-list{
     position: absolute;
-    right: 10px;
+    right: 8px;
+    top: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    z-index: 10;
+  }
+  .item-container .edit-icon-list:hover{
+    opacity: 1;
   }
   
   h1 {

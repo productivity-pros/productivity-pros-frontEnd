@@ -29,7 +29,6 @@ class App extends React.Component {
         let url = `http://localhost:3001/getInspiringExpressions`
         let temData = await axios.get(url);
         let spiringData = temData.data;
-        console.log(spiringData)
         this.setState({
             spiringData: spiringData
         })

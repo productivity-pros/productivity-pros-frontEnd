@@ -3,7 +3,7 @@ import Addnote from "./Addnote"
 import Note from "./Note"
 
 const Noteslist = ({ notes, handleSave, handleDelete, handleUpdate }) => {
-    const [editID, setEditID] = useState();
+    const [editID, setEditID] = useState(-1);
     useEffect(() => {
         // localStorage.setItem('react-notes-app-data',JSON.stringify(notes))
     }, [notes])

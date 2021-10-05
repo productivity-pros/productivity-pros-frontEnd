@@ -79,7 +79,6 @@ function LogoutButton() {
     logout,
     user,
   } = useAuth0();
-  console.log(user)
   return isAuthenticated && (
       <Profile clicked={profileClick}>
         <img

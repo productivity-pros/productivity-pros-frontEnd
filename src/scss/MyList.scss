@@ -1,0 +1,113 @@
+.list{
+  height: 90vh;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 32px;
+ }
+.drop-area {
+  background: hsl(218, 28%, 13%);
+  min-height: 200px;
+  margin: 5px;
+  padding-bottom: 20px;
+  width: 33%;
+  border-radius: 10px;
+  transition: all .5s;
+
+  &:hover {
+    width: 36%;
+  }
+}
+.item-container {
+  position: relative;
+  padding: 15px;
+  background: rgba(15,89,89, 0.7);
+  margin: 20px;
+  color: var(--accent-color-cyan);
+  font-weight: 100;
+  cursor: move;
+  cursor: grab;
+  border-radius: 4px;
+  transition: background .4s;
+  &:hover {
+    background: rgba(15,89,89, 0.9);
+  }
+  &:hover .edit-icon-list{
+    visibility: visible;
+   }
+ }
+
+ .container h1 {
+  color: var(--accent-color-cyan);
+  padding: 20px 0 0 20px;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.input-list {
+  // border: 2px solid #FB6964;
+  display: block;
+  margin: 10px auto;
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 16px;
+  padding-left: 25px;
+  background: rgba(179, 179, 179, 0.014);
+  outline: none;
+  color: rgb(110, 110, 110);
+  transition: all .5s ease;
+  &:focus, &:hover {
+    background: rgba(168, 168, 168, 0.548);
+    // border: 3px solid #FB6964;
+    width: 310px;
+    height: 55px;
+    color: rgb(211, 211, 211);
+  }
+}
+
+.trash-drop {
+  width: 200px;
+  height: 100px;
+  border: 2px solid rgb(217,50,64);
+  background: rgba(217,50,64,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 70px auto;
+  color: var(--accent-color-cyan);
+  border-radius: 20px;
+  transition: all .5s;
+  font-weight: 500;
+    &:hover {
+      background: rgba(217,50,64,.2);
+      width: 210px;
+      height: 110px;
+      }
+ }
+ .footer{
+    clear: both;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+ }
+ .feedbackModel{
+   position: fixed;
+   right: 60px;
+   bottom: 80px;
+ }
+ .edit-icon-list{
+   position: absolute;
+   top: 5px;
+   right: 5px;
+   visibility: hidden;
+   cursor: pointer;
+ }
+ .input-in{
+   width: 290px;
+ }

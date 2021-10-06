@@ -10,7 +10,7 @@ class Weather extends React.Component {
     }
   }
   getData = async () => {
-    let temData = await axios.get('http://localhost:3001/getWeather?city=amman');
+    let temData = await axios.get(`${process.env.REACT_APP_SERVER}/getWeather?city=amman`);
     let Data = temData.data
     if (this.state.Data.length === 0) {
       this.setState({

@@ -19,16 +19,16 @@ class DailyFeed extends React.Component {
     }
     getData = async () => {
         // Inspiring Expressions
-        let temData = await axios.get('http://localhost:3001/getInspiringExpressions');
+        let temData = await axios.get(`${process.env.REACT_APP_SERVER}/getInspiringExpressions`);
         let inspiringData = temData.data
         // Fun Fact
-        temData = await axios.get('http://localhost:3001/getFunFacts');
+        temData = await axios.get(`${process.env.REACT_APP_SERVER}/getFunFacts`);
         let funData = temData.data
         // Advice
-        temData = await axios.get('http://localhost:3001/getAdvice');
+        temData = await axios.get(`${process.env.REACT_APP_SERVER}/getAdvice`);
         let adviceData = temData.data
         // Movie
-        temData = await axios.get('http://localhost:3001/getMovie');
+        temData = await axios.get(`${process.env.REACT_APP_SERVER}/getMovie`);
         let movieData = temData.data
         
         if (this.state.inspiringData.length === 0) {

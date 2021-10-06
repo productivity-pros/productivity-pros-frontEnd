@@ -15,7 +15,7 @@ class News extends React.Component {
         }
     }
     getData = async () => {
-        let url = `http://localhost:3001/getLatestNews`
+        let url = `${process.env.REACT_APP_SERVER}/getLatestNews`;
         let temData = await axios.get(url);
         let Data = []
         for (let i = 0; i < 10; i++) {

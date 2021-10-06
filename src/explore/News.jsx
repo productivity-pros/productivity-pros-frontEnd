@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, Image, Modal } from 'react-bootstrap'
+import { Container, Row, Col, CardGroup,Card, Image, Modal } from 'react-bootstrap'
 import { withAuth0 } from '@auth0/auth0-react';
 import NewsModal from './NewsModal';
 import './News.scss';
@@ -11,7 +11,7 @@ class News extends React.Component {
         this.state = {
             Data: [],
             show: false,
-            ele:0
+            ele: 0
         }
     }
     getData = async () => {
@@ -42,7 +42,39 @@ class News extends React.Component {
         this.getData()
         return (
             <div>
-                <h2>Latest News</h2>
+
+
+                <Container style={{width:"100%",marginRight:"18%"}}>
+                    <Row >
+                        {this.state.Data.map((ele, i) => {
+                            return (
+                                <Col  xs={6} md={6}>
+                                <Card  style={{backgroundColor:'#343A40',color:'hsl(176, 68%, 64%)',fontWeight:'900',width:"100%"}} onClick={() => { this.showM(ele) }}  kye={i}>
+                                        <Card.Img src={ele.image} rounded /> 
+                                         <Card.Title> {ele.title}</Card.Title>
+                                        <Card.Text >
+                                           
+                                        </Card.Text>
+
+                                </Card>
+                              </Col>
+
+                            )
+                        })}
+                    </Row>
+                </Container>
+                <Modal show={this.state.show} onHide={this.closeM}>
+                <NewsModal ele={this.state.ele}/>
+                </Modal> 
+
+
+
+
+
+
+
+
+                {/* <h2>Latest News</h2>
                 <Container>
                     <Row>
                         {this.state.Data.map((ele, i) => {
@@ -58,10 +90,10 @@ class News extends React.Component {
                 <hr />
                 <Modal show={this.state.show} onHide={this.closeM}>
                 <NewsModal ele={this.state.ele}/>
-                </Modal>
+                </Modal> */}
             </div >
         )
     }
 }
 
-export default withAuth0(News)
+export default withAuth0(News);

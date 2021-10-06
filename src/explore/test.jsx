@@ -14,7 +14,7 @@ class Test extends React.Component {
             inspiringData: [],
             funData: [],
             adviceData: [],
-            movieData: []
+            movieData: [],
         }
     }
     getData = async () => {
@@ -30,14 +30,13 @@ class Test extends React.Component {
         // Movie
         temData = await axios.get('http://localhost:3001/getMovie');
         let movieData = temData.data
-
-
+        
         if (this.state.inspiringData.length === 0) {
             this.setState({
                 inspiringData: inspiringData,
                 funData: funData,
                 adviceData: adviceData,
-                movieData: movieData
+                movieData: movieData,
             })
         }
     }
@@ -46,7 +45,7 @@ class Test extends React.Component {
         this.getData()
         return (
             <div className='bigContainer'>
-                <h2>Test</h2>
+                <h2>Your Daily Stream</h2>
                 <div>
                     <div className="wrapper">
                         <div className="grid">
@@ -133,13 +132,13 @@ class Test extends React.Component {
                                 <div className="card-head">
                                     <div className="person">
                                         <div className="name">
-                                            <p>Advice</p>
+                                            <p>Dad Joke to Start Your Day</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="card-body">
                                     <div className="quote-highlight">
-                                        <p>{this.state.adviceData.advice}</p>
+                                        {/* <p>{this.state}</p> */}
                                     </div>
                                 </div>
                             </div>

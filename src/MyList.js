@@ -5,6 +5,9 @@ import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import { FaEdit } from "react-icons/fa";
 import { FaRegWindowClose } from "react-icons/fa";
+import { RiDeleteBinLine } from "react-icons/ri";
+import background from './assets/background.png'
+
 
 class MyList extends React.Component {
 
@@ -151,9 +154,11 @@ class MyList extends React.Component {
 
 
     return (
-      <div className='list'>
-        <div id='background-image'></div>
-        <div class="container">
+      
+      <div style={{ backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat',
+      backgroundSize:'100% 80%',
+   }} className='list'>
+        <div class="container-List">
  
           <div
             className="drop-area"
@@ -161,15 +166,17 @@ class MyList extends React.Component {
             onDrop={e => this.onDrop(e, "todo")}
           >
             <h1>Todo</h1>
-            <div>
-          <input
-              onKeyPress={e => this.handleKeyPress(e)}
-              className="input"
-              type="text"
-              placeholder="Task Name"
-            />
-              </div> 
+           
             {tasks.todo}
+            <div>
+        <div
+            class="trash-drop"
+            onDrop={e => this.onDrop(e, "trash")}
+            onDragOver={e => this.onDragOver(e)}
+          >
+            <RiDeleteBinLine size='1.5em'/>
+          </div>
+        </div>
           </div>
           <div
             className="drop-area"
@@ -178,6 +185,15 @@ class MyList extends React.Component {
           >
             <h1>Working</h1>
             {tasks.working}
+            <div>
+        <div
+            class="trash-drop"
+            onDrop={e => this.onDrop(e, "trash")}
+            onDragOver={e => this.onDragOver(e)}
+          >
+            <RiDeleteBinLine size='1.5em'/>
+          </div>
+        </div>
           </div>
           <div
             className="drop-area"
@@ -186,19 +202,38 @@ class MyList extends React.Component {
           >
             <h1>Complete</h1>
             {tasks.complete}
-          </div>
-        </div>
-        <div>
+            <div>
         <div
             class="trash-drop"
             onDrop={e => this.onDrop(e, "trash")}
             onDragOver={e => this.onDragOver(e)}
           >
-            Drop here to remove
+            <RiDeleteBinLine size='1.5em'/>
+            {/* Drop here to remove */}
           </div>
         </div>
+          </div>
+        </div>
+        <div>
+          <input
+              onKeyPress={e => this.handleKeyPress(e)}
+              className="input-todo"
+              type="text"
+              placeholder="Add More Tasks"
+            />
+              </div>
+        {/* <div>
+        <div
+            class="trash-drop"
+            onDrop={e => this.onDrop(e, "trash")}
+            onDragOver={e => this.onDragOver(e)}
+          >
+            <RiDeleteBinLine size='4em'/>
+            {/* Drop here to remove */}
+          {/* </div> */}
+         {/* </div> */}
  
-      </div>
+     </div>
     );
   }
 }

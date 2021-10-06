@@ -13,6 +13,8 @@ body {
 p {
     font-size: 30px;
     line-height: 1.8;
+    color: hsl(219, 29%, 14%);
+
 }
 
 .quote-highlight p {
@@ -36,7 +38,7 @@ p {
 }
 
 .testimonial-card {
-    box-shadow: 0.5rem 0.75rem 0.75rem hsl(0, 0%, 70%);
+    // box-shadow: 0.5rem 0.75rem 0.75rem hsl(0, 0%, 70%);
     border-radius: 1rem;
     padding: 1.5rem;
     margin: 1rem;
@@ -103,13 +105,13 @@ p {
     color: hsl(0, 0%, 100%);
 }
 
-footer {
-    background: hsl(0, 0%, 100%);
-    position: fixed;
-    padding: .5rem;
-    width: 100%;
-    bottom: 0;
-}
+// footer {
+//     background: hsl(0, 0%, 100%);
+//     position: fixed;
+//     padding: .5rem;
+//     width: 100%;
+//     bottom: 0;
+// }
 
 .attribution {
     font-size: 11px;

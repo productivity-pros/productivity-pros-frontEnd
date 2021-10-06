@@ -5,6 +5,7 @@ import logo from '../assets/logo.jpg';
 import working2 from '../assets/working2.jpg';
 import LoginButton from './LoginButton';
 import Navbar from 'react-bootstrap/esm/Navbar';
+import getStarted from './getStarted'
 class LandingPage extends React.Component {
     render() { 
         return (
@@ -25,8 +26,6 @@ class LandingPage extends React.Component {
       </Navbar.Brand></div>
           <nav className="nav-bar">
             <ul>
-              <li><a href="#">Features</a></li>
-              <li><a href="#">Team</a> </li>
               <li><LoginButton className={'firstLogin'}/></li>
             </ul>
           </nav>
@@ -39,7 +38,7 @@ class LandingPage extends React.Component {
               <p className="lg-p mt-2">Fylo stores all your most important files in one secure location. Access them wherever you need, share and collaborate with friends family, and co-workers.
               </p>
               {/* <button className="btn mt-2"> Get Started</button> */}
-              <LoginButton  className={'firstLogin'}/>
+              <getStarted />
               </div>
           </section>
           <section className="features">
@@ -118,16 +117,6 @@ class LandingPage extends React.Component {
                   <p>Founder &amp; CEO, Huddle</p>
                 </div>
               </div>
-            </div>
-          </section>
-          <section className="cta">
-            <div className="cta-item">
-              <div className="cta-text">
-                <h2>Get early access today </h2>
-                <p>It only takes a minute to sign up and our free starter tier is extremely generous. If you have any questions, our support team would be happy to help you.</p>
-              </div>
-              <form className="cta-form mt-2" action>
-                <input className="input-block" type="text" placeholder="example@email.com" /> <button className="btn-block">Get Started For Free</button> </form>
             </div>
           </section>
         </main>

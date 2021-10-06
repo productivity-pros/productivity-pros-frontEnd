@@ -14,6 +14,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import LoginButton from './components/LoginButton';
 const axios = require('axios');
 
 class App extends React.Component {
@@ -42,12 +43,14 @@ class App extends React.Component {
           <Switch>
              <Route exact path="/">
               {isAuthenticated ? <Explore/> : <LandingPage />}
+              {/* {isAuthenticated ? <Explore/> : <LoginButton />} */}
+
             </Route>
             {/* <Route exact path="/MyList">{isAuthenticated ? <Navbar/> : <LandingPage />}</Route> */}
-            <Route exact path="/MyList">{isAuthenticated ? <MyList/> : <LandingPage />}</Route>
+            <Route exact path="/MyList">{isAuthenticated ? <MyList background/> : <LandingPage />}</Route>
             <Route exact path="/MyNotes">{isAuthenticated ? <MyNotes/> : <LandingPage />}</Route>
           </Switch>
-          {/* <Footer />   */}
+          <Footer />  
         </Router>
       </>
     );

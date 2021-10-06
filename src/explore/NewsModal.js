@@ -31,7 +31,7 @@ class NewsModal extends React.Component {
                     <p>
                         {this.props.ele.description}
                     </p>
-                    <Button variant="outline-dark" href={this.props.ele.url} style={{ position: 'absolute', right: '5px', bottom:'5px' }}>Read More</Button>
+                    <Button variant="outline-dark" href={this.props.ele.url} style={{ position: 'absolute', right: '5px', bottom:'15px' }}>Read More</Button>
                 </Modal.Body>
             </div>
         )

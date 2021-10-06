@@ -69,9 +69,12 @@ a {
 }
 
 header {
+    /* border: solid 1px white; */
     display: flex;
     padding: var(--padding-md);
     justify-content: space-between;
+    position:fixed ;
+    width : 100%;
 }
 
 .nav-bar {
@@ -84,6 +87,9 @@ header {
     font-family: 'Josefin Sans', sans-serif;
     display: inline-block;
     margin-left: 1rem;
+}
+.nav-bar ul li a {
+    font-size: 40px;
 }
 .logo-container>img{
 width:40%;
@@ -152,6 +158,8 @@ input {
 }
 
 .btn {
+    font-weight: 1000;
+    font-size: 30px;
     width: 15rem;
     max-width: 80%;
 }
@@ -262,8 +270,8 @@ button:hover {
 }
 
 .contact-info {
-    margin-top: 50px;
-    padding: var(--padding-footer);
+    /* margin-top: 50px; */
+    /* padding: var(--padding-footer); */
     display: grid;
     background-color: var(--primary-color-dark-blue-3);
     grid-template-columns: repeat(4, 1fr);
@@ -291,6 +299,7 @@ button:hover {
 
 footer p {
     padding: 0;
+    font-size: 15px;
 }
 
 .img-footer {

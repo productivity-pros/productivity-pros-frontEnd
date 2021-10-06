@@ -1,42 +1,49 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//   }
+  body, html {
+    font-family: 'Quicksand', sans-serif;
+    width: 100%;
+    height: 100%;
+    // background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, .7) ), url(https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+
   }
-  // body, html {
-  //   font-family: 'Quicksand', sans-serif;
-  //   width: 100%;
-  //   height: 100%;
-    
-  // }
   #background-image {
-    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, .7) ), url(https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    // background: url(https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
     position: fixed;
-  background-size: cover;
-    width: 100vw;
+    background-size: cover;
+    // width: 100vw;
     background-repeat: no-repeat;
-    height: 100vh;
+    // height: 100vh;
     z-index: -1;
     
   }
-  .container {
+  .container-List {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding-top: 32px;
+    // padding-left: 50%;
+    padding-bottom: 50%;
    }
   .drop-area {
-    background: rgba(0,0,0, 0.8);
-    min-height: 200px;
+    box-shadow: linear-gradient(50deg, hsl(198, 60%, 50%),hsl(176, 68%, 64%));
+    text-align: center;
+    // background: rgba(0,0,0, 0.8);
+    background :hsl(216, 53%, 9%);
+    // height: 90%;
     margin: 5px;
-    padding-bottom: 20px;
-    width: 33%;
+    padding-bottom: 200px;
+    width: 20%;
+    height: 30%;
     border-radius: 10px;
     transition: all .5s;
   
-    // &:hover {
-    //   width: 36%;
-    // }
+    &:hover {
+      width: 36%;
+    }
   }
   .item-container {
     position: relative;
@@ -48,7 +55,7 @@
     cursor: move;
     cursor: grab;
     border-radius: 4px;
-    transition: background .4s;
+    // transition: background .4s;
     overflow-wrap: break-word;
     &:hover {
       background: rgba(15,89,89, 0.9);
@@ -75,11 +82,11 @@
     font-weight: 100;
   }
   
-  input {
-    border: 2px solid hsl(176, 68%, 64%);
-    display: block;
-    margin: 5px auto;
-    width: 90%;
+  .input-todo {
+    // border: 2px solid hsl(176, 68%, 64%);
+    // display: block;
+    // margin: 5px auto;
+    width: 70%;
     height: 50px;
     border-radius: 5px;
     font-size: 16px;
@@ -91,28 +98,34 @@
     &:focus, &:hover {
       background: rgba(255,255,255,1);
       border: 3px solid hsl(176, 68%, 64%);
-      ;
       width: 100%;
-      height: 55px;
+      // height: 55px;
     }
   }
   
   .trash-drop {
-    width: 200px;
-    height: 100px;
-    border: 2px solid rgb(217,50,64);
-    background: rgba(217,50,64,.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 70px auto;
+    font-family: 'Josefin Sans', sans-serif;    
+    font-size: 30px;
+    width: 50px;
+    height: 20px;
+    position: relative;
+    left:80%;
+    bottom:0%;
+    // border: 2px solid rgb(217,50,64);
+    // background: rgba(217,50,64,.2);
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    //  margin: 70px auto;
     color: #fff;
     border-radius: 20px;
-    transition: all .5s;
+    // transition: all .5s;
     font-weight: 500;
-      &:hover {
-        background: rgba(217,50,64,.2);
-        width: 210px;
-        height: 110px;
+      &:hover,&:focus{
+        // background: rgba(217,50,64,.2);
+        width: 70px;
+        height: 40px;
+        color: rgb(247, 62, 62);
+
         }
    }

@@ -8,7 +8,7 @@ import { IconContext } from 'react-icons';
 import LogoutButton from './LogoutButton.js';
 import LoginButton from './LoginButton.js';
 import { withAuth0 } from "@auth0/auth0-react";
-import {Navbar, Col, Image} from 'react-bootstrap';
+import { Navbar, Col, Image } from 'react-bootstrap';
 import logo from '../assets/logo.jpg';
 
 class Navbarr extends React.Component {
@@ -25,25 +25,29 @@ class Navbarr extends React.Component {
     })
   }
 
-  render () {
+  render() {
     const { isAuthenticated } = this.props.auth0;
     return (
-      <>
-        <IconContext.Provider value={{ color: 'hsl(176, 68%, 64%)',  }}>
+      <div className="nav-body">
+        <IconContext.Provider value={{ color: 'hsl(176, 68%, 64%)', }}>
           <div className='navbarHeader'>
             <Link to='#' className='menu-bars'>
               <FaIcons.FaBars onClick={this.showSidebar} />
             </Link>
             <Navbar.Brand className={'text-center'} >
-        <img
-          alt=""
-          src={logo}
-          width="35%"
-          height="10%"
-          className="d-inline-block align-top"
-        />
-      </Navbar.Brand>
-            {isAuthenticated ? <LogoutButton/> : <LoginButton />}
+              <div className="logo-image">
+                <img
+                  alt=""
+                  src={logo}
+                  width="140px"
+                  // height="10%"
+                  className="d-inline-block align-top"
+                />
+              </div>
+            </Navbar.Brand>
+            <div className="log-icon">
+              {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+            </div>
           </div>
           <nav className={this.state.sidebar ? 'nav-menu active' : 'nav-menu'}>
             <ul className='nav-menu-items' onClick={this.showSidebar}>
@@ -65,7 +69,7 @@ class Navbarr extends React.Component {
             </ul>
           </nav>
         </IconContext.Provider>
-      </>
+      </div>
     );
   }
 }

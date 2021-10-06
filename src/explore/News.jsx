@@ -43,12 +43,11 @@ class News extends React.Component {
         return (
             <div>
 
-
-                <Container style={{width:"100%",marginRight:"18%"}}>
+                <Container style={{width:"100%", marginRight: "20%"}}>
                     <Row >
                         {this.state.Data.map((ele, i) => {
                             return (
-                                <Col  xs={6} md={6}>
+                                <Col  xs={10} md={6}>
                                 <Card  style={{backgroundColor:'#343A40',color:'hsl(176, 68%, 64%)',fontWeight:'900',width:"100%"}} onClick={() => { this.showM(ele) }}  kye={i}>
                                         <Card.Img src={ele.image} rounded /> 
                                          <Card.Title> {ele.title}</Card.Title>
@@ -64,7 +63,7 @@ class News extends React.Component {
                     </Row>
                 </Container>
                 <Modal show={this.state.show} onHide={this.closeM}>
-                <NewsModal ele={this.state.ele}/>
+                {/* <NewsModal ele={this.state.ele}/> */}
                 </Modal> 
 
 

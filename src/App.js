@@ -50,7 +50,7 @@ class App extends React.Component {
             <Route exact path="/MyList">{isAuthenticated ? <MyList background/> : <LandingPage />}</Route>
             <Route exact path="/MyNotes">{isAuthenticated ? <MyNotes/> : <LandingPage />}</Route>
           </Switch>
-          <Footer />  
+          {isAuthenticated && <Footer />}  
         </Router>
       </>
     );

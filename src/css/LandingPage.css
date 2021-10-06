@@ -17,7 +17,7 @@
     --padding-footer-mobile: 25rem 3rem 1rem;
 }
 
-body {
+.body-landing {
     background-color: var(--primary-color-dark-blue-2);
     color: var(--neutral-color-white);
     font-family: var(--font-body);
@@ -65,30 +65,37 @@ a {
     font-weight: 1800;
 }
 .firstLogin{
-    color:black;
+    border-radius: 25px;
+    background: linear-gradient(50deg, var(--accent-color-cyan), var(--accent-color-blue));
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--neutral-color-white);
+    height: 3rem;
+    font-weight: 700;
+    padding: 0 12px;
 }
 
-header {
+.header-landing {
     /* border: solid 1px white; */
     display: flex;
     padding: var(--padding-md);
     justify-content: space-between;
-    position:fixed ;
+    /* position:fixed ; */
     width : 100%;
 }
 
-.nav-bar {
+.nav-bar-landing {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.nav-bar ul li {
+.nav-bar-landing ul li {
     font-family: 'Josefin Sans', sans-serif;
     display: inline-block;
     margin-left: 1rem;
 }
-.nav-bar ul li a {
+.nav-bar-landing ul li a {
     font-size: 40px;
 }
 .logo-container>img{
@@ -138,7 +145,7 @@ section {
     margin-top: 2rem;
 }
 
-button {
+/* button {
     border-radius: 25px;
     background: linear-gradient(50deg, var(--accent-color-cyan), var(--accent-color-blue));
     border: none;
@@ -147,7 +154,7 @@ button {
     height: 3rem;
     font-weight: 700;
     padding: 0 12px;
-}
+} */
 
 input {
     height: 3rem;

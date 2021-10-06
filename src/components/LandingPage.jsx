@@ -6,26 +6,26 @@ import working2 from '../assets/working2.jpg';
 import LoginButton from './LoginButton';
 import Navbar from 'react-bootstrap/esm/Navbar';
 class LandingPage extends React.Component {
-    render() { 
-        return (
-        <div>
+  render() {
+    return (
+      <div className="body-landing">
 
-<header>
-   
-          <div> 
-          <Navbar.Brand  fixed="top" href="#home">
-        <img
-          alt=""
-          src={logo}
-          width="35%"
-          height="10%"
-        //   className="d-inline-block align-top"
-        />
-      {/* React Bootstrap<img src={logo} alt= "logo" /> */}
-      </Navbar.Brand></div>
-          <nav className="nav-bar">
+        <header className="header-landing">
+
+          <div>
+            <Navbar.Brand fixed="top" href="#home">
+              <img
+                alt=""
+                src={logo}
+                width="35%"
+                height="10%"
+              //   className="d-inline-block align-top"
+              />
+              {/* React Bootstrap<img src={logo} alt= "logo" /> */}
+            </Navbar.Brand></div>
+          <nav className="nav-bar-landing">
             <ul>
-              <li><LoginButton className={'firstLogin'}/></li>
+              <li><LoginButton className={'firstLogin'} /></li>
             </ul>
           </nav>
         </header>
@@ -38,7 +38,7 @@ class LandingPage extends React.Component {
               </p>
               {/* <button className="btn mt-2"> Get Started</button> */}
               <getStarted />
-              </div>
+            </div>
           </section>
           <section className="features">
             <div className="features-item">
@@ -164,8 +164,8 @@ class LandingPage extends React.Component {
             </div>
           </section>
         </footer>
-        </div>);
-    }
+      </div>);
+  }
 }
- 
+
 export default LandingPage;

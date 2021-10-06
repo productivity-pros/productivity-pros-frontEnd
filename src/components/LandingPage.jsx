@@ -5,6 +5,11 @@ import logo from '../assets/logo.jpg';
 import working2 from '../assets/working2.jpg';
 import LoginButton from './LoginButton';
 import Navbar from 'react-bootstrap/esm/Navbar';
+import  {BsGithub, BsLinkedin} from "react-icons/bs";
+import {BsFacebook}from "react-icons/bs";
+import {BsInstagram} from "react-icons/bs";
+import{BsTwitter} from "react-icons/bs";
+
 class LandingPage extends React.Component {
   render() {
     return (
@@ -19,9 +24,7 @@ class LandingPage extends React.Component {
                 src={logo}
                 width="35%"
                 height="10%"
-              //   className="d-inline-block align-top"
               />
-              {/* React Bootstrap<img src={logo} alt= "logo" /> */}
             </Navbar.Brand></div>
           <nav className="nav-bar-landing">
             <ul>
@@ -33,11 +36,9 @@ class LandingPage extends React.Component {
           <section className="intro">
             <div className="intro-img"> <img src={working2} height={'400'} alt="illustration-intro" /></div>
             <div className="intro-content">
-              <h1> All your files in one secure location, accessible anywhere.</h1>
-              <p className="lg-p mt-2">Fylo stores all your most important files in one secure location. Access them wherever you need, share and collaborate with friends family, and co-workers.
+              <h1 style={{fontSize: "40px" , paddingLeft:"20px"}}>Focus on being productive instead of busy !!</h1>
+              <p>Productivity pro stores all your most important tasks in one secure location. Access them wherever you need, Focus on being productive instead of busy.
               </p>
-              {/* <button className="btn mt-2"> Get Started</button> */}
-              <getStarted />
             </div>
           </section>
           <section className="features">
@@ -55,18 +56,12 @@ class LandingPage extends React.Component {
                 <p> 2-factor authentication and user-controlled encryption are just a couple of the security features we allow to help secure your files.</p>
               </div>
             </div>
-            <div className="features-item">
-              <div className="features-item-head"> <img src="https://hannahshiels.github.io/front-end-mentor/fylo-dark-theme-landing-page-master/images/icon-collaboration.svg" alt="" /> </div>
-              <div className="features-item-body  mt-2">
-                <h3> Real-time collaboration</h3>
-                <p> Securely share files and folders with friends, family and colleagues for live collaboration. No email attachments required.</p>
-              </div>
-            </div>
+         
             <div className="features-item">
               <div className="features-item-head"> <img src="https://hannahshiels.github.io/front-end-mentor/fylo-dark-theme-landing-page-master/images/icon-any-file.svg" alt="" /> </div>
               <div className="features-item-body  mt-2">
-                <h3> Store any type of file</h3>
-                <p> Whether you're sharing holidays photos or work documents, Fylo has you covered allowing for all file types to be securely stored and shared.</p>
+                <h3> Store your tasks</h3>
+                <p> Whether you're sharing holidays photos or work documents, Productivity Pro has you covered allowing for all file types to be securely stored and shared.</p>
               </div>
             </div>
           </section>
@@ -74,16 +69,16 @@ class LandingPage extends React.Component {
             <div className="productive-img"> <img src="https://hannahshiels.github.io/front-end-mentor/fylo-dark-theme-landing-page-master/images/illustration-stay-productive.png" alt="" /> </div>
             <div className="productive-content">
               <h2>Stay productive, wherever you are</h2>
-              <p className="lg-p"> Never let location be an issue when accessing your files. Fylo has you covered for all of your file storage needs. </p>
+              <p className="lg-p"> Never let location be an issue when accessing your files. Productivity pro has you covered for all of your file storage needs. </p>
               <p className="lg-p"> Securely share files and folders with friends, family and colleagues for live collaboration. No email attachments required.
               </p>
-              <p className="lg-p"> <a className="content-link" href="#">See how Fylo works <i className="fas fa-arrow-alt-circle-right" /></a> </p>
+              <p className="lg-p"> <a className="content-link" href="#">See how Productivity pro works <i className="fas fa-arrow-alt-circle-right" /></a> </p>
             </div>
           </section>
           <section className="testimonial">
             <div className="testimonial-item">
               <div className="testimonial-item-text">
-                <p>Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.</p>
+                <p>Productivity Pro has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.</p>
               </div>
               <div className="testimonial-item-reviewer">
                 <div className="testimonial-item-reviewer-img"> <img src="https://hannahshiels.github.io/front-end-mentor/fylo-dark-theme-landing-page-master/images/profile-1.jpg" alt="" /></div>
@@ -95,7 +90,7 @@ class LandingPage extends React.Component {
             </div>
             <div className="testimonial-item">
               <div className="testimonial-item-text">
-                <p>Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.</p>
+                <p>Productivity Pro has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.</p>
               </div>
               <div className="testimonial-item-reviewer">
                 <div className="testimonial-item-reviewer-img"> <img src="https://hannahshiels.github.io/front-end-mentor/fylo-dark-theme-landing-page-master/images/profile-2.jpg" alt="" /></div>
@@ -107,7 +102,7 @@ class LandingPage extends React.Component {
             </div>
             <div className="testimonial-item">
               <div className="testimonial-item-text">
-                <p> Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.</p>
+                <p> Productivity pro has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.</p>
               </div>
               <div className="testimonial-item-reviewer">
                 <div className="testimonial-item-reviewer-img"> <img src="https://hannahshiels.github.io/front-end-mentor/fylo-dark-theme-landing-page-master/images/profile-3.jpg" alt="" /></div>
@@ -121,21 +116,21 @@ class LandingPage extends React.Component {
         </main>
         <footer>
           <section className="contact-info">
-            <div className="contact-info-logo"> <img src={logo} alt="" /> </div>
-            <div className="contact-info-location">
-              <div className="contact-info-location-item">
+            <div className="contact-info-location">           
+             <div className="contact-info-logo"> <img src={logo} alt="" /> </div>
+              <div  style={{padding: '40px'}}className="contact-info-location-item">
                 <img className="img-footer" src="https://hannahshiels.github.io/front-end-mentor/fylo-dark-theme-landing-page-master/images/icon-location.svg" alt="" />
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                <p >Amman Jordan LTUC , ASAC</p>
               </div>
             </div>
             <div className="contact-info-contacts">
               <div className="contact-info-contacts-item">
                 <img className="img-footer" src="https://hannahshiels.github.io/front-end-mentor/fylo-dark-theme-landing-page-master/images/icon-phone.svg" alt="" />
-                <p>+1-543-123-4567</p>
+                <p>06-54312567</p>
               </div>
               <div className="contact-info-contacts-item ">
                 <img className="img-footer" src="https://hannahshiels.github.io/front-end-mentor/fylo-dark-theme-landing-page-master/images/icon-email.svg" alt="" />
-                <p>example@fylo.com</p>
+                <p>example@ProductivityPro.com</p>
               </div>
             </div>
             <nav className="contact-info-links">
@@ -151,15 +146,21 @@ class LandingPage extends React.Component {
                 <li> <a href="#">Privacy</a> </li>
               </ul>
             </nav>
-            <div className="contact-info-social-links">
+            <div style={{padding: '40px'}} className="contact-info-social-links">
               <a className="icon-link" href="#">
-                <div className="contact-info-social-link-item flex-center"> <i className="fab fa-facebook-f" /></div>
+                <div className="contact-info-social-link-item flex-center"> <BsTwitter/></div>
               </a>
               <a className="icon-link" href="#">
-                <div className="contact-info-social-link-item flex-center"> <i className="fab fa-twitter" /></div>
+                <div className="contact-info-social-link-item flex-center"> <BsFacebook/></div>
               </a>
               <a className="icon-link" href="#">
-                <div className="contact-info-social-link-item flex-center"> <i className="fab fa-instagram" /> </div>
+                <div className="contact-info-social-link-item flex-center"> <BsGithub/> </div>
+              </a>
+              <a className="icon-link" href="#">
+                <div className="contact-info-social-link-item flex-center"> <BsInstagram/> </div>
+              </a>
+              <a className="icon-link" href="#">
+                <div className="contact-info-social-link-item flex-center"> <BsLinkedin/> </div>
               </a>
             </div>
           </section>

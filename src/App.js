@@ -8,6 +8,7 @@ import Login from './components/Login.js';
 import {withAuth0} from "@auth0/auth0-react";
 import Navbar from './components/Navbar';
 import LandingPage from './components/LandingPage'
+import FeedbackModel from './components/FeedbackModel'
 
 import {
   BrowserRouter as Router,
@@ -50,7 +51,12 @@ class App extends React.Component {
             <Route exact path="/MyList">{isAuthenticated ? <MyList background/> : <LandingPage />}</Route>
             <Route exact path="/MyNotes">{isAuthenticated ? <MyNotes/> : <LandingPage />}</Route>
           </Switch>
+
           {isAuthenticated && <Footer />}  
+
+          
+          {isAuthenticated && <FeedbackModel />}
+
         </Router>
       </>
     );

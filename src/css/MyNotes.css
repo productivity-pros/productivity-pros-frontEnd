@@ -61,8 +61,10 @@ code {
 textarea {
 	border: none;
 	resize: none;
-	background-color: #c7c7c7;
+	background-color: #5353538e;
+	color: hsl(180, 21%, 5%);
 	color: var(--accent-color-cyan);
+	border-radius: 6px;
 }
 
 textarea:focus {

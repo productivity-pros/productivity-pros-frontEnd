@@ -7,3 +7,23 @@
     transform: scale(1.1);
     background: linear-gradient(100deg, var(--accent-color-cyan), var(--accent-color-blue));
 }
+.modal-content{
+    background: linear-gradient(135deg, var(--accent-color-cyan), var(--accent-color-blue));
+}
+.modal-header{
+    color: hsl(215, 72%, 18%);
+}
+.close:hover{
+    background: transparent;
+}
+.modal-body{
+    color: hsl(215, 72%, 18%);
+}
+.modal-body textarea{
+    color: hsl(0, 0%, 0%);
+    background: rgb(235, 233, 233);
+}
+.modal-body button{
+    color: hsl(215, 72%, 18%);
+}
+

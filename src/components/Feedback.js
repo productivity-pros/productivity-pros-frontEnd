@@ -89,6 +89,7 @@ const styles = {
         borderRadius: 5,
         width: "100px",
         padding: 10,
+        marginLeft: 200
     },
     form: {
         margin: '0px 80px',

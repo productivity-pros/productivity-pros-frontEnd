@@ -34,3 +34,4 @@ The code base should be easy for anyone to read and understand what each line is
 Your team should decide on standard naming conventions to use throughout the project and hold each other accountable to these standards. Do not use funny or offensive names. Write code that you will be proud to show a future employer.
 
 The code base should also follow similar code organization from file to file. For example, all the files that affect application styling should follow similar patterns and syntax.
+

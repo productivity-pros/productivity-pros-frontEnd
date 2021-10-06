@@ -1,5 +1,5 @@
 import React from 'react'
-import './Weather.scss'
+import '../scss/Weather.scss'
 const axios = require('axios');
 
 class Weather extends React.Component {

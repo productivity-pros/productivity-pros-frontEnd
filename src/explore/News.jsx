@@ -1,8 +1,8 @@
 import React from 'react'
-import { Container, Row, Col, CardGroup,Card, Image, Modal } from 'react-bootstrap'
+import { Container, Row, Col,Card, Modal } from 'react-bootstrap'
 import { withAuth0 } from '@auth0/auth0-react';
 import NewsModal from './NewsModal';
-import './News.scss';
+import '../scss/News.scss';
 const axios = require('axios');
 
 class News extends React.Component {

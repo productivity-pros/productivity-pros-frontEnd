@@ -1,8 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { withAuth0 } from '@auth0/auth0-react';
-import News from './explore/News'
-import Test from './explore/test'
+import News from '../explore/News'
+import DailyFeed from '../explore/DailyFeed'
 
 class Explore extends React.Component {
 
@@ -10,7 +10,7 @@ class Explore extends React.Component {
         return (
             <div style={{ marginLeft: '30%' }}>
                 <h1>Explore</h1>
-                <Test/>
+                <DailyFeed/>
                 <News />
             </div>
         )

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import Noteslist from "./components/Noteslist";
-import Search from './components/Search';
+import Noteslist from "./Noteslist";
+import Search from './Search';
 // import Header from './components/Header';
-import './MyNotes.css'
+import '../css/MyNotes.css'
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 

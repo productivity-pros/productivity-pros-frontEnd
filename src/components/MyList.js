@@ -1,12 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './MyList.scss';
+import '../scss/MyList.scss';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import { FaEdit } from "react-icons/fa";
 import { FaRegWindowClose } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
-import background from './assets/background.png'
+import background from '../assets/background.png'
 
 
 class MyList extends React.Component {

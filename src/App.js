@@ -1,10 +1,10 @@
 import React from 'react';
-import Footer from './Footer';
- import MyList from './MyList';
- import MyNotes from './MyNotes'
+import Footer from './components/Footer';
+ import MyList from './components/MyList';
+ import MyNotes from './components/MyNotes'
 // import Sidebar from './sidebar'
-import Explore from './Explore'
-import Login from './Login.js';
+import Explore from './components/Explore'
+import Login from './components/Login.js';
 import {withAuth0} from "@auth0/auth0-react";
 import Navbar from './components/Navbar';
 import LandingPage from './components/LandingPage'
@@ -14,7 +14,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import LoginButton from './components/LoginButton';
+// import LoginButton from './components/LoginButton';
 const axios = require('axios');
 
 class App extends React.Component {

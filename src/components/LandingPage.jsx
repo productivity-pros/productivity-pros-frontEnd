@@ -1,11 +1,10 @@
 import React from 'react';
-import './LandingPage.css';
+import '../css/LandingPage.css';
 // import logo from './assets/logo.jpg';
 import logo from '../assets/logo.jpg';
 import working2 from '../assets/working2.jpg';
 import LoginButton from './LoginButton';
 import Navbar from 'react-bootstrap/esm/Navbar';
-import getStarted from './getStarted'
 class LandingPage extends React.Component {
     render() { 
         return (

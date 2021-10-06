@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Button, Col, Image } from 'react-bootstrap';
 import styled from "styled-components";
 
 const Logout = styled.button`

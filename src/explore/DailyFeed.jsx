@@ -1,13 +1,13 @@
 import React from 'react'
 import { Carousel } from 'react-bootstrap'
-import './News.scss';
-import './test.scss'
+import '../scss/News.scss';
+import '../scss/DailyFeed.scss'
 import Weather from './Weather'
 
 const axios = require('axios');
 
 
-class Test extends React.Component {
+class DailyFeed extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -152,4 +152,4 @@ class Test extends React.Component {
     }
 }
 
-export default Test
+export default DailyFeed

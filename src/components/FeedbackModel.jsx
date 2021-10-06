@@ -29,11 +29,6 @@ function FeedbackModel() {
         <Modal.Body>
           <Feedback />
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );

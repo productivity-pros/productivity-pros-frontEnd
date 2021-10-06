@@ -4,6 +4,8 @@ import * as AiIcons from 'react-icons/ai';
 import * as MdIcons from "react-icons/md";
 import * as BiIcons from "react-icons/bi";
 import * as ImIcons from "react-icons/im";
+import { IoPeopleSharp } from "react-icons/io5";
+
 
 
 export const SidebarData = [
@@ -26,4 +28,11 @@ export const SidebarData = [
     icon: <ImIcons.ImPencil2 />,
     cName: 'nav-text'
   }
+  ,{
+    title: 'About Us',
+    path: '/AboutUS',
+    icon: <IoPeopleSharp/>,
+    cName: 'nav-text'
+  }
+
 ];

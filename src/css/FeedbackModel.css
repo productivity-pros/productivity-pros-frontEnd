@@ -1,0 +1,9 @@
+#float{
+    width: 70px;
+    border-radius: 40px;
+    background: linear-gradient(50deg, var(--accent-color-cyan), var(--accent-color-blue));
+}
+#float:hover{
+    transform: scale(1.1);
+    background: linear-gradient(100deg, var(--accent-color-cyan), var(--accent-color-blue));
+}

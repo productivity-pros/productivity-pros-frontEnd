@@ -5,6 +5,8 @@ import Search from './Search';
 import '../css/MyNotes.css'
 import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
+import FeedbackModel from './FeedbackModel'
+import background from '../assets/background.png'
 
 const MyNotes = () => {
 	const [notes, setNotes] = useState([])
@@ -52,24 +54,30 @@ const MyNotes = () => {
 			// console.log('here');
 			const date = new Date();
 			let newNote = {
-			  text: ev.target.value,
-			  date: date.toLocaleDateString(),
-			  email: user.email,
-			  _id: id
+				text: ev.target.value,
+				date: date.toLocaleDateString(),
+				email: user.email,
+				_id: id
 			}
 			let noteData = await axios.put(`${process.env.REACT_APP_SERVER}/updatenote`, newNote);
 			setNotes(noteData.data);
 			callback(-1);
-		  }
+		}
 	}
 	const [darkMode, setDarkMode] = useState(false)
 	// console.log(notes);
 	return (
-		<div className={`${darkMode && 'dark-mode'}`}>
+		<div className={`${darkMode && 'dark-mode'}`} style={{
+			backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat',
+			backgroundSize: 'cover',
+		}}>
 			<div className='containerNotes'>
 				<h1>My Notes</h1>
 				<Search handleSearchNote={setSearchText} />
 				<Noteslist notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))} handleSave={addNote} handleDelete={deleteNote} handleUpdate={updateNote} />
+			</div>
+			<div className="feedbackModel">
+				<FeedbackModel />
 			</div>
 		</div>
 	)

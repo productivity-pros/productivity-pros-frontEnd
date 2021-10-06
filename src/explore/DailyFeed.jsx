@@ -86,7 +86,7 @@ class DailyFeed extends React.Component {
                                 </div>
                             </div>
 
-                            <div className="testimonial-card bg-light grid-item-3">
+                            <div className="testimonial-card bg-gray grid-item-3">
                                 <div className="card-head">
                                     <div className="person">
                                         <div className="name">
@@ -102,7 +102,7 @@ class DailyFeed extends React.Component {
                             </div>
                             <Weather />
 
-                            <div className="testimonial-card bg-light grid-item-4">
+                            <div className="testimonial-card bg-purple grid-item-4">
                                 <div className="card-head">
                                     <div className="person">
                                         <div className="name">
@@ -110,7 +110,7 @@ class DailyFeed extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="card-body">
+                                {/* <div className="card-body"> */}
                                     <Carousel className='slideImg'>
                                         {this.state.movieData.map((ele, i) => {
                                             return (
@@ -125,10 +125,10 @@ class DailyFeed extends React.Component {
                                         })
                                         }
                                     </Carousel>
-                                </div>
+                                {/* </div> */}
                             </div>
 
-                            <div className="testimonial-card bg-light grid-item-6">
+                            <div className="testimonial-card bg-blue-dif grid-item-6">
                                 <div className="card-head">
                                     <div className="person">
                                         <div className="name">
@@ -146,7 +146,6 @@ class DailyFeed extends React.Component {
                         </div>
                     </div>
                 </div>
-                <hr />
             </div >
         )
     }

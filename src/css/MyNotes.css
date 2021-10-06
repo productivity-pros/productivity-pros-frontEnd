@@ -20,17 +20,18 @@ code {
 	background-color: rgba(0, 0, 0, 0.9);
 }
 
-.dark-mode h1 {
-	color: white;
+.containerNotes h1 {
+	color: var(--accent-color-cyan);
 }
 
 .containerNotes {
-	max-width: 1800px;
+	/* max-width: 1800px; */
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 15px;
 	padding-left: 15px;
 	min-height: 90vh;
+	color: var(--accent-color-cyan);
 }
 
 .notes-list {
@@ -43,7 +44,7 @@ code {
 }
 
 .note.new {
-	background-color: #67d7cc;
+	background-color: rgba(117, 117, 117, 0.432);
 	border-radius: 10px;
 	padding: 1rem;
 	min-height: 170px;
@@ -53,10 +54,15 @@ code {
 	white-space: pre-wrap;
 }
 
+.note.new textarea{
+	background-color: transparent;
+}
+
 textarea {
 	border: none;
 	resize: none;
-	background-color: #67d7cc;
+	background-color: #c7c7c7;
+	color: var(--accent-color-cyan);
 }
 
 textarea:focus {
@@ -76,7 +82,7 @@ textarea:focus {
 }
 
 .notes {
-	background-color: #fef68a;
+	background-color: hsl(218, 28%, 13%);
 	border-radius: 10px;
 	padding: 1rem;
 	min-height: 170px;
@@ -111,7 +117,7 @@ textarea:focus {
 .search {
 	display: flex;
 	align-items: center;
-	background-color: rgb(233, 233, 233);
+	background-color: rgba(233, 233, 233, 0.171);
 	border-radius: 10px;
 	padding: 5px;
 	margin-bottom: 1.5em;
@@ -119,8 +125,11 @@ textarea:focus {
 
 .search input {
 	border: none;
-	background-color: rgb(233, 233, 233);
+	background-color: rgba(27, 27, 27, 0.747);
 	width: 100%;
+}
+.search:hover input:hover{
+	background-color: rgba(0, 0, 0, 0.747);
 }
 
 .search input:focus {

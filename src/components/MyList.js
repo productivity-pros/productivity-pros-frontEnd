@@ -7,7 +7,7 @@ import { FaEdit } from "react-icons/fa";
 import { FaRegWindowClose } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 import background from '../assets/background.png'
-
+import FeedbackModel from './FeedbackModel'
 
 class MyList extends React.Component {
 
@@ -20,7 +20,7 @@ class MyList extends React.Component {
     ],
     editID: -1,
     editedID: 0,
-    editedCat:''
+    editedCat: ''
   };
 
   onDragOver = ev => {
@@ -54,7 +54,7 @@ class MyList extends React.Component {
     });
   };
 
-   startEdit = idx => {
+  startEdit = idx => {
     const input = document.getElementById(`input${idx}`);
     this.state.tasks.forEach((task, taskIdx) => {
       if (taskIdx == idx) {
@@ -66,7 +66,7 @@ class MyList extends React.Component {
       }
     })
   };
- 
+
 
 
   handleKeyPressUpdate = async ev => {
@@ -118,7 +118,7 @@ class MyList extends React.Component {
     })
   }
 
-  render(){
+  render() {
     var tasks = {
       todo: [],
       working: [],
@@ -145,38 +145,35 @@ class MyList extends React.Component {
             onKeyPress={e => this.handleKeyPressUpdate(e)}
           />
           }
-          {this.state.editID !== idx && <FaEdit className='edit-icon-list' size='1.5em' onClick={e => this.startEdit(idx)}/>}
-          {this.state.editID === idx && <FaRegWindowClose className='edit-icon-list' size='1.5em' onClick={this.handleClose}/>}
+          {this.state.editID !== idx && <FaEdit className='edit-icon-list' size='1.5em' onClick={e => this.startEdit(idx)} />}
+          {this.state.editID === idx && <FaRegWindowClose className='edit-icon-list' size='1.5em' onClick={this.handleClose} />}
         </div>
       );
     });
-  
 
-
+    <FeedbackModel />
     return (
-      
-      <div style={{ backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat',
-      backgroundSize:'100% 80%',
-   }} className='list'>
-        <div class="container-List">
- 
+      <div style={{
+        backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }}
+        className='list'
+      >
+        <div id='background-image'></div>
+        <div class="container">
           <div
             className="drop-area"
             onDragOver={e => this.onDragOver(e)}
             onDrop={e => this.onDrop(e, "todo")}
           >
             <h1>Todo</h1>
-           
+            <input
+              onKeyPress={e => this.handleKeyPress(e)}
+              className="input-list"
+              type="text"
+              placeholder="Add Task"
+            />
             {tasks.todo}
-            <div>
-        <div
-            class="trash-drop"
-            onDrop={e => this.onDrop(e, "trash")}
-            onDragOver={e => this.onDragOver(e)}
-          >
-            <RiDeleteBinLine size='1.5em'/>
-          </div>
-        </div>
           </div>
           <div
             className="drop-area"
@@ -185,15 +182,6 @@ class MyList extends React.Component {
           >
             <h1>Working</h1>
             {tasks.working}
-            <div>
-        <div
-            class="trash-drop"
-            onDrop={e => this.onDrop(e, "trash")}
-            onDragOver={e => this.onDragOver(e)}
-          >
-            <RiDeleteBinLine size='1.5em'/>
-          </div>
-        </div>
           </div>
           <div
             className="drop-area"
@@ -202,38 +190,28 @@ class MyList extends React.Component {
           >
             <h1>Complete</h1>
             {tasks.complete}
-            <div>
-        <div
-            class="trash-drop"
-            onDrop={e => this.onDrop(e, "trash")}
-            onDragOver={e => this.onDragOver(e)}
-          >
-            <RiDeleteBinLine size='1.5em'/>
-            {/* Drop here to remove */}
-          </div>
-        </div>
           </div>
         </div>
         <div>
-          <input
-              onKeyPress={e => this.handleKeyPress(e)}
-              className="input-todo"
-              type="text"
-              placeholder="Add More Tasks"
-            />
-              </div>
-        {/* <div>
-        <div
+          {/* <input
+            onKeyPress={e => this.handleKeyPress(e)}
+            className="input-list"
+            type="text"
+            placeholder="Task Name"
+          /> */}
+
+          <div
             class="trash-drop"
             onDrop={e => this.onDrop(e, "trash")}
             onDragOver={e => this.onDragOver(e)}
           >
-            <RiDeleteBinLine size='4em'/>
-            {/* Drop here to remove */}
-          {/* </div> */}
-         {/* </div> */}
- 
-     </div>
+            Drop here to remove
+          </div>
+        </div>
+        <div className="feedbackModel">
+          <FeedbackModel />
+        </div>
+      </div>
     );
   }
 }

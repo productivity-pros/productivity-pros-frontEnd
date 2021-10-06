@@ -2,6 +2,8 @@ import Feedback from "./Feedback";
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { RiFeedbackLine } from 'react-icons/ri';
+import "../css/FeedbackModel.css"
+
 function FeedbackModel() {
   const [show, setShow] = useState(false);
 
@@ -11,9 +13,9 @@ function FeedbackModel() {
   return (
     <>
 
-      <Button id="float"  onClick={handleShow}> 
-           <RiFeedbackLine size='1.5em'/>
-             </Button>
+      <Button id="float" onClick={handleShow}>
+        <RiFeedbackLine size='1em' />
+      </Button>
 
       <Modal
         show={show}

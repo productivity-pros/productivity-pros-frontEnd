@@ -8,12 +8,6 @@ import * as ImIcons from "react-icons/im";
 
 export const SidebarData = [
   {
-    title: 'Home',
-    path: '/',
-    icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Explore',
     path: '/',
     icon: <MdIcons.MdOutlineExplore />,
@@ -30,12 +24,6 @@ export const SidebarData = [
     title: 'My Note',
     path: '/MyNotes',
     icon: <ImIcons.ImPencil2 />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'FeedBack',
-    path: '/FeedBack',
-    icon: <BiIcons.BiMessageRoundedError />,
     cName: 'nav-text'
   }
 ];

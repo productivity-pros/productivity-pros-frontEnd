@@ -8,7 +8,6 @@ const colors = {
 };
 
 
-
 function Feedback() {
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
@@ -88,7 +87,7 @@ const styles = {
     button: {
         border: "1px solid #a9a9a9",
         borderRadius: 5,
-        width: 300,
+        width: "100px",
         padding: 10,
     },
     form: {

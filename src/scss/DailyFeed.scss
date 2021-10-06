@@ -24,6 +24,7 @@
 .bigContainer h2{
     color: var(--accent-color-cyan);
     padding-left: 40px;
+    font-size: 35px;
 }
 
 // .wrapper {
@@ -108,6 +109,13 @@
     color: hsl(0, 0%, 100%);
 }
 
+.bg-movie {
+    background: repeat hsl(17, 82%, 48%);
+    background-position: calc(100% - 1rem) 1rem;
+    background-repeat: no-repeat;
+    color: hsl(0, 0%, 100%);
+}
+
 .bg-blue-dif {
     background: linear-gradient(50deg, var(--accent-color-cyan), var(--accent-color-blue)), linear-gradient(50deg, var(--accent-color-cyan), var(--accent-color-blue));
     color: hsl(0, 0%, 100%);
@@ -177,4 +185,7 @@ hr::before{
     border-color: hsl(228, 45%, 44%);
     border-width: 0 0 1px 0;
     border-radius: 20px;
+}
+.name p{
+    font-size: 35px;
 }

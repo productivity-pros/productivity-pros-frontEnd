@@ -102,7 +102,7 @@ class DailyFeed extends React.Component {
                             </div>
                             <Weather />
 
-                            <div className="testimonial-card bg-purple grid-item-4">
+                            <div className="testimonial-card bg-movie grid-item-4">
                                 <div className="card-head">
                                     <div className="person">
                                         <div className="name">
@@ -138,7 +138,8 @@ class DailyFeed extends React.Component {
                                 </div>
                                 <div className="card-body">
                                     <div className="quote-highlight">
-                                        {/* <p>{this.state}</p> */}
+                                        <p>"My wife said I should do lunges to stay in shape. That would be a big step forward."
+</p>
                                     </div>
                                 </div>
                             </div>

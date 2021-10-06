@@ -307,6 +307,7 @@ button:hover {
 footer p {
     padding: 0;
     font-size: 15px;
+    color: var(--neutral-color-white);
 }
 
 .img-footer {

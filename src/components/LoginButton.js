@@ -10,7 +10,7 @@ function LoginButton() {
   } = useAuth0();
 
   return !isAuthenticated && (
-    <Button style={{color: 'black'}}onClick={loginWithRedirect}>Sign in</Button>
+    <Button style={{background: "linear-gradient(50deg, var(--accent-color-blue), var(--accent-color-cyan))"}}onClick={loginWithRedirect}>Sign in</Button>
   );
 }
 

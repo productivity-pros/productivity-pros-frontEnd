@@ -1,34 +1,60 @@
 import React from 'react';
-import Header from './Header';
-import IsLoadingAndError from './IsLoadingAndError';
-import Footer from './Footer';
+import Footer from './components/Footer';
+ import MyList from './components/MyList';
+ import MyNotes from './components/MyNotes'
+// import Sidebar from './sidebar'
+import Explore from './components/Explore'
+import Login from './components/Login.js';
+import {withAuth0} from "@auth0/auth0-react";
+import Navbar from './components/Navbar';
+import LandingPage from './components/LandingPage'
+
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+// import LoginButton from './components/LoginButton';
+const axios = require('axios');
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        user: this.props.auth0.user,
+        spiringData: []
+    }
+}
 
+   getSpiringData = async () => {
+        let url = `http://localhost:3001/getInspiringExpressions`
+        let temData = await axios.get(url);
+        let spiringData = temData.data;
+        this.setState({
+            spiringData: spiringData
+        })
+    }
   render() {
-    console.log('app', this.props);
-    return(
+    const {isAuthenticated} = this.props.auth0;
+    return (
       <>
         <Router>
-          {/* <IsLoadingAndError> */}
-            <Header />
-            <Switch>
-              <Route exact path="/">
-                {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
-              </Route>
-              {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
-            </Switch>
-            <Footer />
-          {/* </IsLoadingAndError> */}
+        { isAuthenticated && <Navbar />}
+          <Switch>
+             <Route exact path="/">
+              {isAuthenticated ? <Explore/> : <LandingPage />}
+              {/* {isAuthenticated ? <Explore/> : <LoginButton />} */}
+
+            </Route>
+            {/* <Route exact path="/MyList">{isAuthenticated ? <Navbar/> : <LandingPage />}</Route> */}
+            <Route exact path="/MyList">{isAuthenticated ? <MyList background/> : <LandingPage />}</Route>
+            <Route exact path="/MyNotes">{isAuthenticated ? <MyNotes/> : <LandingPage />}</Route>
+          </Switch>
+          {/* {isAuthenticated && <FeedbackModel />} */}
+          {isAuthenticated && <Footer />}  
         </Router>
       </>
     );
   }
 }
-
-export default App;
+export default withAuth0(App);

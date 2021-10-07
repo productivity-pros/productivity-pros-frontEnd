@@ -4,6 +4,7 @@ import  {BsGithub, BsLinkedin} from "react-icons/bs";
 import {BsFacebook}from "react-icons/bs";
 import {BsInstagram} from "react-icons/bs";
 import{BsTwitter} from "react-icons/bs";
+import FeedbackModel from './FeedbackModel';
 // import {p1,p2,p3,p4}from "../assets"
  import p1 from "../assets/p1.jpg"
  import p2 from "../assets/p2.jpg"
@@ -105,7 +106,9 @@ class AboutUS extends React.Component {
           </div>
         </li>
       </ul>
-
+      <div className="feedbackModel">
+				<FeedbackModel />
+			</div>
 
             </div>);
     }

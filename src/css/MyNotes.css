@@ -129,6 +129,7 @@ textarea:focus {
 	border: none;
 	background-color: rgba(27, 27, 27, 0.747);
 	width: 100%;
+	color:whitesmoke
 }
 .search:hover input:hover{
 	background-color: rgba(0, 0, 0, 0.747);

@@ -1,36 +1,55 @@
-# productivity-pros-front-end
+# Productivity props
 
-## Front-End
+## Team Members
 
-* Good and proper use of React
+1. Abdallah Abu Hussein
 
-  * Clear, readable, and efficient structure
-  * Correctly passes props to children components
-  * Organized into nested components for DRY code
+2. Mohammad Lebzo
 
-* Good and proper use of React-Bootstrap
+3. Saif Saeed
 
-  * Clear, readable, and efficient styles
-  * Designed with a mobile-first approach
+4. Abdulkareem Shehadeh
 
-* Good and proper use of JavaScript and
+5. Mohammad Abdo
 
- * Clear, readable, and efficient code
- * Uses domain models to encapsulate data and behavior, such as objects and constructors
+6. Ammar Ramadan
 
-  * Uses React to respond to user events, receive and process user input, and display new content to the user
-Contains no unnecessary or commented-out code
+## description of the project
 
-* Deployed live on the Internet via Netlify
+- Our project includes many features that help the user in his daily life and contains many stuff ‘s like the weather forecast, news, movies show, a space for the joke and place for taking the notes.
 
-## Code Style
+## The overall problem domain and how the project solves those problems
 
-Follow the code style you have learned throughout this course. Ensure that the team is using meaningful and descriptive names for all files, variables, function names, etc. Follow best practices with casing, spacing, and indentation.
+- There is no site that has many features in one place like us , the user need to open and search for many site to get all these features, so we looked into the topic and then we create a site that contains many features and we were provided to the user in one site to give the user more convenience and ease of use.
 
-## Why:
+## Semantic versioning, beginning with version 1.0.0 and incremented as changes are made
 
-The code base should be easy for anyone to read and understand what each line is doing. Organize your code in a way that makes it natural to read in order.
+- Our Version is 1.0.1
 
-Your team should decide on standard naming conventions to use throughout the project and hold each other accountable to these standards. Do not use funny or offensive names. Write code that you will be proud to show a future employer.
+## A list of any libraries, frameworks, or packages that your application requires in order to properly function
 
-The code base should also follow similar code organization from file to file. For example, all the files that affect application styling should follow similar patterns and syntax.
+1. Libraries: Node.js, React.js, Axios, Mangos.
+
+2. Framework: React.Js.
+
+## Instructions that the user may need to follow in order to get your application up and running on their own computer
+
+- It so easy he just wants to get this link run in his browser:
+
+## Clearly defined API endpoints with sample responses
+
+Description | example |
+---------- |------------|
+Inspiring Expressions: it give us the text and author name and everytime we use it give us a random tags **URL**`localhost:3001/getInspiringExpressions`|![insp](./img/insp.png)
+Weather: it give us the weather forcast for the next 6 Days **URL**`localhost:3001/getWeather?city=Amman`| ![weather](./img/weather.png)
+Moveis: it give us 4 random movies **URL**`localhost:3001/getMovie`| ![Movies](./img/movies.png)
+Advice: it give us a random advice **URL**`localhost:3001/getAdvice`| ![advice](./img/advice.png)
+Fact: it give us fact and catigores **URL**`localhost:3001/getFunFacts`| ![fact](./img/fact.png)
+
+***
+
+## Clearly defined database schemas
+
+- ![schemas](./img/s1.png)
+
+- ![schemas](./img/s2.png)
